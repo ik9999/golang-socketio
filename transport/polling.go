@@ -9,8 +9,8 @@ import (
 	"time"
 
 	"fmt"
-	"github.com/mtfelian/golang-socketio/logging"
-	"github.com/mtfelian/golang-socketio/protocol"
+	"github.com/ik9999/golang-socketio/logging"
+	"github.com/ik9999/golang-socketio/protocol"
 )
 
 const (
