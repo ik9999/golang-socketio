@@ -116,18 +116,18 @@ func (c *Channel) inLoop(e *event) error {
 	for {
 		message, err := c.conn.GetMessage()
 		if err != nil {
-			logging.Log().Debugf("Channel.inLoop(), c.conn.GetMessage() err: %v, message: %s", err, message)
+			logging.Log().Warnf("Channel.inLoop(), c.conn.GetMessage() err: %v, message: %s", err, message)
 			return c.close(e)
 		}
 
 		if message == transport.StopMessage {
-			logging.Log().Debug("Channel.inLoop(): StopMessage")
+			logging.Log().Warnf("Channel.inLoop(): StopMessage")
 			return nil
 		}
 
 		decodedMessage, err := protocol.Decode(message)
 		if err != nil {
-			logging.Log().Debugf("Channel.inLoop() decoding err: %v, message: %s", err, message)
+			logging.Log().Warnf("Channel.inLoop() decoding err: %v, message: %s", err, message)
 			c.close(e)
 			return err
 		}
